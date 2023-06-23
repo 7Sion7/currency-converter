@@ -1,0 +1,27 @@
+
+html{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background-image: url(exchange-currency.jpg);
+    background-color: azure;
+    height: 400px; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+.title {
+    text-decoration: underline;
+    text-align: center;
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.content{
+    display: table;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Currency Coverter</title>
+</head>
+<body>
+    <h1 class="title">Currency Converter</h1>
+    <div class="content">
+        <select name="original" id="original" onchange="fetchAPI()">
+            <option value="GBP">British Pound</option>
+            <option value="BRL">Brazilian Real</option>
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="AUD">Australian Dollar</option>
+            <option value="CHF">Swiss Franc</option>
+            <option value="JPY">Japanese Yen</option>
+            <option value="NZD">New Zealand Dollar</option>
+            <option value="CAD">Canadian Dollar</option>
+            <option value="THB">Thai Baht</option>
+            <option value="INR">Indian Rupee</option>
+        </select>
+        <input type="number" id="input" placeholder="Amount" min="0" step="any" onchange="converter()"></input>
+        <select name="converted" id="converted" onchange="converter()">
+            <option value="GBP">British Pound</option>
+            <option value="BRL">Brazilian Real</option>
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="AUD">Australian Dollar</option>
+            <option value="CHF">Swiss Franc</option>
+            <option value="JPY">Japanese Yen</option>
+            <option value="NZD">New Zealand Dollar</option>
+            <option value="CAD">Canadian Dollar</option>
+            <option value="THB">Thai Baht</option>
+            <option value="INR">Indian Rupee</option>
+        </select>
+        <br>
+        <h2 class="output"><output id="output" name="result"></output></h2>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
