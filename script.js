@@ -15,9 +15,13 @@ function main(){
     let converted = document.getElementById("converted").value
     let output = document.getElementById("output")
     let amount = document.getElementById("input").value
+    console.log(typeof amount)
+    if (amount === "") {
+        output.value = amount
+        return;
+    }
     amount = parseFloat(amount)
     let rate = res[converted]
-    console.log(Number.isInteger(rate))
     let result =  amount * rate
     output.value = result
 }
