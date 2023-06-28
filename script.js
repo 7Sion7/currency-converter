@@ -20,9 +20,15 @@ function changeBackground() {
     element.classList.add(backgroundOptions[currentIndex]);
     if (backgroundOptions[currentIndex] !== 'body') {
         nav.classList.add("transparent");
+        if (backgroundOptions[currentIndex] === 'image-background') {
+            let div = document.getElementById("div")
+            div.setAttribute("style", "display:block;")
+        } else {
+            div.setAttribute("style", "display:none;")
+        }
     } else {
         nav.classList.remove("transparent");
-    }
+    } 
 }
 
 async function fetchAPI() {
