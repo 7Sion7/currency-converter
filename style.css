@@ -50,14 +50,6 @@ body{
     background-size: cover;
 }
 
-.change-background{
-    cursor: pointer;
-    padding: 10px;
-    position:absolute;
-    top: 5em;
-    right: 0.85em;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -67,6 +59,29 @@ input::-webkit-inner-spin-button {
 #nav{
     background: radial-gradient(rgb(48, 46, 46), rgb(87, 86, 86), black, grey);
     border-radius: 5px;
+    margin: 5px;
+}
+
+#nav button{
+    background-size: contain;
+    background: fixed;
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    padding: 15px;
+    position:absolute;
+    top: 0.7em;
+    right: 0.85em;
+}
+
+#nav button:hover{
+    font-style: italic;
+}
+
+#nav h1{
+    top: 0;
+    left: 0;
 }
 
 #nav.transparent{
