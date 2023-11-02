@@ -17,10 +17,10 @@ function changeBackground() {
     let backgroundOne = rootStyles.getPropertyValue('--BackgroundOne');
     let backgroundTwo = rootStyles.getPropertyValue('--BackgroundTwo');
 
-    let currentBackground = getComputedStyle(document.body).getPropertyValue('background-image').includes("http://localhost:3000/") ? 
-    getComputedStyle(document.body).getPropertyValue('background-image').replace("http://localhost:3000/", "").replace(/['"]+/g, '') :
+    let currentBackground = getComputedStyle(document.body).getPropertyValue('background-image').includes("exchange-currency.jpg") ? 
+    'url(exchange-currency.jpg)':
     getComputedStyle(document.body).getPropertyValue('background-image').replace(/"url"[()]+/g, '');
-
+    
     if (currentBackground === imageBackground) {
         backgroundBox.style.display = 'none'
         document.body.style.backgroundImage = `${backgroundOne}`;
