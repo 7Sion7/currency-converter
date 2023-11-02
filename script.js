@@ -3,32 +3,34 @@ let res
 let timeout
 let ot = document.getElementById("ot")
 let output = document.getElementById("output")
-    output.value = "converted..."
+output.value = "converted..."
 
 const backgroundOptions = ['image-background', 'colorful-background', 'body'];
 
 let currentIndex = 0;
 
 function changeBackground() {
-    let element = document.body;
-    let nav = document.getElementById("nav")
-    element.classList.remove(backgroundOptions[currentIndex]);
-    currentIndex += 1
-    if (currentIndex === backgroundOptions.length) {
-        currentIndex = 0;
+    let rootStyles = getComputedStyle(document.documentElement);
+    let backgroundBox = document.getElementById('div')
+
+    let imageBackground = rootStyles.getPropertyValue('--imageBackground');
+    let backgroundOne = rootStyles.getPropertyValue('--BackgroundOne');
+    let backgroundTwo = rootStyles.getPropertyValue('--BackgroundTwo');
+
+    let currentBackground = getComputedStyle(document.body).getPropertyValue('background-image').includes("http://localhost:3000/") ? 
+    getComputedStyle(document.body).getPropertyValue('background-image').replace("http://localhost:3000/", "").replace(/['"]+/g, '') :
+    getComputedStyle(document.body).getPropertyValue('background-image').replace(/"url"[()]+/g, '');
+
+    if (currentBackground === imageBackground) {
+        backgroundBox.style.display = 'none'
+        document.body.style.backgroundImage = `${backgroundOne}`;
+    } else if (currentBackground === backgroundOne) {
+        document.body.style.backgroundImage = `${backgroundTwo}`;
+    } else if (currentBackground === backgroundTwo) {
+        backgroundBox.style.display = 'block'
+        document.body.style.backgroundImage = `${imageBackground}`;
     }
-    element.classList.add(backgroundOptions[currentIndex]);
-    if (backgroundOptions[currentIndex] !== 'body') {
-        nav.classList.add("transparent");
-        if (backgroundOptions[currentIndex] === 'image-background') {
-            let div = document.getElementById("div")
-            div.setAttribute("style", "display:block;")
-        } else {
-            div.setAttribute("style", "display:none;")
-        }
-    } else {
-        nav.classList.remove("transparent");
-    } 
+
 }
 
 async function fetchAPI() {
@@ -44,6 +46,7 @@ function main(){
     let converted = document.getElementById("converted").value
     let amount = document.getElementById("input").value
     if (amount === "") {
+        output.style.color = "rgba(0, 0, 0, 0.5)"
         output.value = "converted..."
         return;
     }
@@ -51,6 +54,7 @@ function main(){
     let rate = res[converted]
     let result =  amount * rate
     ot.setAttribute("style", "display:inline-block;")
+    output.style.color = "black"
     output.value = result.toFixed(2);
 }
 
